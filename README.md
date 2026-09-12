@@ -1,121 +1,143 @@
 # Dockee Privacy Policy
 
 **Effective date: September 12, 2026**
+**Applies to: Dockee 0.5.0**
 
-Dockee is a browser extension designed to provide quick tools and contextual controls while you browse.
+Dockee is a Chrome extension that puts a small dock at the bottom of webpages, with quick notes, screenshots, media controls and download progress.
 
-Dockee is built with privacy in mind. Most current functionality runs locally on your device and does not require an account.
+Dockee has no servers, no account, and no analytics. Nothing you do in Dockee is sent to us, because there is nowhere for it to be sent. Everything described below happens on your own computer unless this policy says otherwise.
 
-## Information Dockee accesses
+## Where Dockee runs
 
-Dockee may access limited information from webpages you visit when required to provide its features.
+Dockee runs on ordinary web pages served over `http` and `https`. It does not run on local
+files, on `chrome://` pages, on the Chrome Web Store, or on other extensions' pages.
 
-This may include:
+## What Dockee can access, and why
 
-- webpage content needed to capture screenshots
-- the current page URL and title when needed for notes or contextual features
-- video playback state to provide video controls
-- active download information to display download progress
+Dockee requests these browser permissions:
 
-Dockee only accesses this information to provide its user-facing features.
+| Permission | What it is for |
+| --- | --- |
+| Access to `http` and `https` sites | Draw the dock on the page, read the page title and address for notes, and find audio or video that is playing |
+| `storage`, `unlimitedStorage` | Keep your notes, your dock preference, and the screenshot you are currently editing, on your device |
+| `downloads` | Show progress for downloads in the dock, and pause, resume, cancel or reveal them |
+| `tabCapture` | Show a live picture of a video playing in another tab, when you ask for it |
+| `scripting` | Place the dock on tabs that were already open when Dockee was installed or updated |
+| `clipboardWrite` | Copy a note or a screenshot when you press Copy |
 
 ## Notes
 
-Notes created in Dockee are stored locally using browser extension storage.
+A note is saved only when you press Save. Each saved note contains the page title, the page
+address, the text you typed, and any text you had selected on the page when you opened the
+note.
 
-Dockee does not upload your notes to its servers.
+Notes are kept in the extension's local storage on your device. There is one note per page
+address: saving a note for a page you have already noted replaces the previous one. Notes are
+never uploaded anywhere.
 
-Your notes remain on your device unless you explicitly choose to copy, export, or share them.
+Dockee does not yet have a button to delete an individual note. Until it does, you can remove
+saved notes by clearing Dockee's storage from `chrome://extensions`, or by uninstalling Dockee.
 
 ## Screenshots
 
-Screenshots are created and processed locally on your device.
+Screenshots are taken and edited entirely on your device. Dockee never uploads them.
 
-Dockee does not automatically upload screenshots to its servers or third parties.
+While you are editing one, the working image is held in the extension's local storage together
+with the address and title of the page it came from. It is deleted when you close the editor.
+A screenshot leaves your device only if you choose to download it or copy it to the clipboard.
 
-Screenshots leave your device only when you explicitly choose to save, copy, export, or share them.
+## Audio and video controls
 
-## Video controls
+Dockee looks for playing audio and video in your open tabs so it can show what is playing and
+let you pause, skip and scrub. For each one it reads the title, the artist or site, whether it
+is playing, the position and duration, the volume and mute state, and which tab it is in.
 
-Dockee may detect video playback on webpages in order to provide contextual playback controls.
+This information is held in memory for the current browser session only. It is never written to
+disk and it is gone when you quit Chrome.
 
-This may include information such as:
+Dockee also registers the media keys on your keyboard (play/pause, next, previous, stop) so
+they control whatever the dock is showing. Dockee receives these key presses only; it does not
+monitor your keyboard otherwise.
 
-- whether a video is playing or paused
-- playback position
-- video duration
-- the tab or webpage containing the video
+### Live video from another tab
 
-This information is used only to provide Dockee's media controls.
+If a video is playing in a different tab, Dockee can show it moving inside the dock. This uses
+Chrome's tab capture, and it only starts after you click the Dockee toolbar icon on the tab the
+video is in. Chrome shows that tab as being captured while this is running.
+
+What Dockee receives is a live video stream of that tab's visible area. Dockee crops it down to
+the video itself and displays it in the dock. The stream is never recorded, saved or
+transmitted — it exists only while the video is on screen, and it stops when you close the
+dock, close the panel, or leave the tab.
 
 ## Downloads
 
-Dockee may access browser download information in order to display active download progress and status.
+Dockee reads your current and recent downloads to show them in the dock: the file name, the
+site it came from, the size, the progress, and whether it finished, failed or was cancelled.
 
-Dockee does not upload or inspect the contents of downloaded files.
+Dockee does not open or inspect the contents of downloaded files. Download details are held in
+memory for the current browser session only.
 
-## Local storage
+## Images loaded from the web
 
-Dockee may store the following information locally on your device:
+To show artwork for what is playing, the dock may load an image over the network:
 
-- notes
-- Dockee preferences
-- interface settings
-- temporary feature state
+- artwork the page itself declares for the media it is playing
+- the video's own poster image, or the page's preview image
+- for YouTube, the standard thumbnail for that video, from `i.ytimg.com`
+- the site's favicon, for tabs where no artwork is available
 
-This information is stored using browser-provided local storage mechanisms.
+These are ordinary image requests. They tell the host serving the image your IP address and
+which image was asked for, exactly as loading the page itself would. No information about you,
+your notes or your browsing is attached to them. Dockee sends nothing else to anyone.
 
-## Data collection
+## What Dockee does not do
 
-Dockee does not currently collect or sell:
+Dockee does not collect, store or transmit:
 
 - personally identifiable information
 - health information
 - financial or payment information
-- authentication credentials
-- precise location
-- personal communications
+- passwords or other authentication credentials
+- location
+- your personal communications
+- your browsing history
 
-Dockee does not use browsing activity for advertising, profiling, credit scoring, lending decisions, or unrelated purposes.
+Dockee does not sell or share user data. Dockee does not use anything it sees for advertising,
+profiling, credit scoring, lending decisions, or any purpose other than the features described
+above. There is no tracking and no telemetry of any kind.
 
-## Data sharing
+## Keeping and removing your data
 
-Dockee does not sell user data.
+Everything Dockee stores stays on your device:
 
-Dockee does not transfer webpage content, notes, screenshots, or browsing information to third parties as part of its current functionality.
+- **Saved notes** and your **minimised or expanded** dock preference persist until you remove them.
+- **The screenshot being edited** is removed when you close the editor.
+- **Media and download details** live in memory and are cleared when Chrome closes.
 
-If Dockee introduces features in the future that require external services, this Privacy Policy and the relevant browser extension disclosures will be updated before those features are introduced.
-
-## Data retention and deletion
-
-Information stored locally by Dockee remains on your device until:
-
-- you delete it through Dockee where that option is available
-- you clear the extension's stored data
-- you uninstall the extension
-
-Uninstalling Dockee removes data stored in the extension's local storage according to your browser's storage behavior.
+Uninstalling Dockee removes its stored data, according to how your browser handles extension
+storage.
 
 ## Chrome Web Store Limited Use
 
-Dockee's use of information received from Chrome APIs complies with the **Chrome Web Store User Data Policy**, including the Limited Use requirements.
-
-Information accessed through Chrome APIs is used only to provide and improve Dockee's user-facing functionality.
+Dockee's use of information received from Chrome APIs complies with the
+[Chrome Web Store User Data Policy](https://developer.chrome.com/docs/webstore/program-policies/limited-use),
+including the Limited Use requirements. Information accessed through Chrome APIs is used only
+to provide the user-facing features described in this policy, and is not transferred to anyone.
 
 ## Security
 
-Dockee is designed to minimize the amount of information that leaves your device.
-
-However, no software or storage system can guarantee absolute security.
+Dockee is built so that as little as possible leaves your device, and in normal use nothing
+does. No software can promise perfect security, and data stored by your browser is protected by
+your browser and your computer.
 
 ## Changes to this policy
 
-Dockee may update this Privacy Policy as new functionality is introduced.
-
-Material changes to how user data is accessed, collected, used, or shared will be reflected in this policy and in the Chrome Web Store disclosures where required.
+If Dockee gains a feature that changes how information is accessed, stored or shared, this
+policy and the Chrome Web Store disclosures will be updated before that feature ships.
 
 ## Contact
 
-If you have questions about this Privacy Policy or Dockee's handling of data, contact:
+Questions about this policy or about how Dockee handles data:
 
 **contact@dockee.xyz**
